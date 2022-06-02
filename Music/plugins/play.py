@@ -200,7 +200,7 @@ async def play(c: Client, m: Message):
                 videoid = search[4]
                 dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
                 info = f"https://t.me/elsaa_Ro_bot?start=info_{videoid}"
-                keyboard = stream_markup(user_id, dlurl)
+                keyboard = playboard(user_id, dlurl)
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
                 await blaze.edit(
@@ -237,7 +237,7 @@ async def play(c: Client, m: Message):
                             await m.reply_photo(
                                 photo=playimg,
                                 caption=f"📡 Started Streaming 💡\n\n👤Requested By:{requester}\nInformation- [Here]({info})",
-                                reply_markup=InlineKeyboardMarkup(playboard),
+                                reply_markup=InlineKeyboardMarkup(keyboard),
                             )
                         except Exception as ep:
                             await blaze.delete()
