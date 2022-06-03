@@ -28,8 +28,8 @@ async def menu(_, query: CallbackQuery):
         ),
     )
 
-@Client.on_callback_query(filterz.regex("panel")) 
-async def panel(_, query: CallbackQuery) :
+@Client.on_callback_query(filters.regex("panel")) 
+async def panel(_, query: CallbackQuery):
      a = await _.get_chat_member(query.message.chat.id, query.from_user.id) 
     await query.edit_message_text(
         "**Here  Is Control Panel Of Music**", 
@@ -54,5 +54,12 @@ async def panel(_, query: CallbackQuery) :
             ]
        ),
     ) 
-# soon @Client.on_callback_query(
-#
+@Client.on_callback_query(filters.regex("next")) 
+async def next(_, query: CallbackQuery):
+    a = await_.get_chat_member(query.message.chat.id, query.from_user.id) 
+   await query.edit_message_text(
+       "**Here  Is Control Panel Of Music**",
+       reply_markup=InlineKeyboardButton(next_board) 
+     )
+
+
