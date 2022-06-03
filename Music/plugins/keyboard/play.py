@@ -43,3 +43,25 @@ def next_markup(_, chat_id):
                   callback_data="close") 
          ], 
       ]
+      return buttons
+
+def menu_markup(_, chat_id):
+            [
+                 [
+                     InlineKeyboardButton("⏸", callback_data="pause"),
+                     InlineKeyboardButton("⏹", callback_data="stop"), 
+                     InlineKeyboardButton("▶️", callback_data="play"), 
+                 ], 
+                 [
+                     InlineKeyboardButton("🔇", callback_data="mute"), 
+                     InlineKeyboardButton("🔊", callback_data="unmute"),
+                 ], 
+                 [
+                     InlineKeyboardButton("Next", callback_data="next"), 
+                     InlineKeyboardButton("🔙", callback_data="menu"), 
+                 ], 
+                 [
+                     InlineKeyboardButton("🗑Close", callbackdata="close")
+                 ]
+            ]
+            return buttons
