@@ -46,7 +46,20 @@ def next_markup(_, chat_id):
       return buttons
 
 def menu_markup(_, chat_id):
-            [
+    buttons = [
+                [
+                    InlineKeyboardButton("Panel🎛", callback_data="panel"),
+                    InlineKeyboardButton("Lyrics🔎", callback_data="lyrics"),
+                ],
+                [
+                    InlineKeyboardButton ("Support⛓", callback="back"),          
+                    InlineKeyboardButton("🗑 Close", callback_data="close")
+                ],
+           ]
+           return buttons
+
+def panel_markup(_, chat_id):
+    buttons =  [
                  [
                      InlineKeyboardButton("⏸", callback_data="pause"),
                      InlineKeyboardButton("⏹", callback_data="stop"), 
