@@ -2,7 +2,7 @@ import yt_dlp
 from Music.Client.queues import QUEUE
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup)
-from Music.plugins.keyboard import play_markup, next_markup as nextboard
+from Music.plugins.keyboard.play import play_markup, next_markup 
 
 @Client.on_callback_query(filters.regex("close"))
 async def close(_, query: CallbackQuery):
@@ -59,7 +59,7 @@ async def next(_, query: CallbackQuery):
     a = await_.get_chat_member(query.message.chat.id, query.from_user.id) 
    await query.edit_message_text(
        "**Here  Is Control Panel Of Music**",
-       reply_markup=InlineKeyboardButton(nextboard) 
+       reply_markup=InlineKeyboardButton(next_markup) 
      )
 
 
