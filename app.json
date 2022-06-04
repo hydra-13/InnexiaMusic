@@ -1,6 +1,6 @@
 {
-  "name": "HerokuBannedDeployer",
-  "description": "With this you can deploy repos that are banned/blacklisted by heroku",
+  "name": "InnexiaMusic",
+  "description": "A Simple Telegram Music Bot Source Code",
   "keywords": [
     "telegram",
     "open",
@@ -10,6 +10,7 @@
     "remote",
     "deployer"
   ],
+  "stack": "container",
   "env": {
     "OTHER_INSTALLS": {
       "description": "If you need install packages for running your app(Python is pre-installed).[Space in between each package]",
@@ -55,13 +56,12 @@
    }
   
   },
-  "addons": [
-      {
-          "plan": "heroku-postgresql"
-      }],
   "buildpacks": [
           {
               "url": "heroku/python"
+          },
+          {
+              "url": "heroku/nodejs"
           },
           {
               "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
