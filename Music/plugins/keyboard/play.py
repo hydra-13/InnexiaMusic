@@ -52,7 +52,7 @@ def menu_markup(_, chat_id):
                     InlineKeyboardButton("Lyrics🔎", callback_data="lyrics"),
                 ],
                 [
-                    InlineKeyboardButton ("Support⛓", callback="back"),          
+                    InlineKeyboardButton ("Support⛓", callback="support"),          
                     InlineKeyboardButton("🗑 Close", callback_data="close")
                 ],
            ]
