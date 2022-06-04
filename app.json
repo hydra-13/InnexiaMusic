@@ -10,8 +10,7 @@
     "remote",
     "deployer"
   ],
-  "stack": "container",
-  "env": {
+   "env": {
     "OTHER_INSTALLS": {
       "description": "If you need install packages for running your app(Python is pre-installed).[Space in between each package]",
       "value": "None",
