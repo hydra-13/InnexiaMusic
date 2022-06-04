@@ -17,7 +17,7 @@ from PIL import Image, ImageDraw, ImageFont
 from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2, IMG_5, SUPPORT_CHAT
 from Music.helper.filters import command, other_filters
 from Music.Client.queues import QUEUE, add_to_queue
-from Music.Client.tgcalls import call_py, sex as user
+from Music.Client.tgcalls import Mikki, sex as user
 from Music.helper.utils import bash
 from Music import bot as Client
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
@@ -149,7 +149,7 @@ async def play(c: Client, m: Message):
                 )
             else:
              try:
-                await call_py.join_group_call(
+                await Mikki.join_group_call(
                     chat_id,
                     AudioPiped(
                         dl,
@@ -224,7 +224,7 @@ async def play(c: Client, m: Message):
                             await blaze.edit(
                             f"**Downloaded**\n\n**Title**: {title[:22]}\n\n0% ████████████100%\n\n**Time Taken**: 00:00 Seconds\n\n**Converting Audio[FFmpeg Music]**"
                         )
-                            await call_py.join_group_call(
+                            await Mikki.join_group_call(
                                 chat_id,
                                 AudioPiped(
                                     ytlink,
