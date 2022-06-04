@@ -20,7 +20,7 @@ user = PyTgCalls(sex,
     cache_duration=100,
     overload_quiet_mode=True,)
 
-call_py = PyTgCalls(sex, overload_quiet_mode=True)
+Mikki = PyTgCalls(sex, overload_quiet_mode=True)
 
 with Client("Bot", API_ID, API_HASH, bot_token=BOT_TOKEN) as app:
     me_bot = app.get_me()
