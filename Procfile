@@ -1,1 +1,1 @@
-worker: bash start
+worker: docker-compose up -d
