@@ -5,7 +5,7 @@ from Music import Mikki
 
 @Client.on_message(filters.command("mute"))
 
-async def mute_stream(client, message):
+async def mute(client, message):
     query = " ".join(message.command[1:])
     if query == "channel":
         chat_id = int(message.chat.title)
