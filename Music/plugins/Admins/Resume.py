@@ -15,6 +15,6 @@ async def resume(client, message):
         type = "Group"
     try:
         await Mikki.resume_stream(chat_id)
-        await message.reply(f"**{type} stream paused!**")
+        await message.reply(f"**{type} stream Resumed**")
     except GroupCallNotFound:
         await message.reply("**Error:** GroupCall not found!")
