@@ -5,7 +5,7 @@ from Music import Mikki
 
 @Client.on_message(filters.command("unmute"))
 
-async def resume(client, message):
+async def Unmute_stream(client, message):
     query = " ".join(message.command[1:])
     if query == "channel":
         chat_id = int(message.chat.title)
