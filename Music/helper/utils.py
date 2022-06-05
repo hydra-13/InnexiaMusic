@@ -1,6 +1,6 @@
 import os
 import asyncio
-from Music import bot, call_py
+from Music import bot, Mikki
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from Process.queues import QUEUE, clear_queue, get_queue, pop_an_item
@@ -44,7 +44,7 @@ async def skip_current_song(chat_id):
                 type = chat_queue[1][3]
                 Q = chat_queue[1][4]
                 if type == "Audio":
-                    await call_py.change_stream(
+                    await Mikki.change_stream(
                         chat_id,
                         AudioPiped(
                             url,
@@ -63,7 +63,7 @@ async def skip_current_song(chat_id):
                 pop_an_item(chat_id)
                 return [songname, link, type]
             except:
-                await call_py.leave_group_call(chat_id)
+                await Mikki.leave_group_call(chat_id)
                 clear_queue(chat_id)
                 return 2
     else:
@@ -85,26 +85,26 @@ async def skip_item(chat_id, h):
         return 0
 
 
-@call_py.on_kicked()
+@Mikki.on_kicked()
 async def kicked_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
         await bot.send_message(chat_id, "<b>Assistant Kicked From The Group Kindly Check.</b>") 
 
 
-@call_py.on_closed_voice_chat()
+@Mikki.on_closed_voice_chat()
 async def closed_voice_chat_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
 
 
-@call_py.on_left()
+@Mikki.on_left()
 async def left_handler(_, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
         await bot.send_message(chat_id, "<b>Unfortunately Assistant Left The Voice Chat Kindly Check.</b>") 
 
-@call_py.on_stream_end()
+@Mikki.on_stream_end()
 async def stream_end_handler(_, u: Update):
     if isinstance(u, StreamAudioEnded):
         chat_id = u.chat_id
