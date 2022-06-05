@@ -3,7 +3,7 @@ from pytgcalls.exceptions import GroupCallNotFound
 from Music import Mikki
 
 
-@Client.on_message(filters.command("pause"))
+@Client.on_message(filters.command("resume"))
 
 async def resume(client, message):
     query = " ".join(message.command[1:])
