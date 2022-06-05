@@ -5,7 +5,7 @@ from asyncio.queues import QueueEmpty
 import os
 import random
 import re
-import youtube_dl
+import yt_dlp
 import youtube_dl
 import aiofiles
 import aiohttp
