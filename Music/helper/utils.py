@@ -33,7 +33,7 @@ async def skip_current_song(chat_id):
     if chat_id in QUEUE:
         chat_queue = get_queue(chat_id)
         if len(chat_queue) == 1:
-            await call_py.leave_group_call(chat_id)
+            await Mikki.leave_group_call(chat_id)
             clear_queue(chat_id)
             return 1
         else:
@@ -57,7 +57,7 @@ async def skip_current_song(chat_id):
                         hm = MediumQualityVideo()
                     elif Q == 360:
                         hm = LowQualityVideo()
-                    await call_py.change_stream(
+                    await Mikki.change_stream(
                         chat_id, AudioVideoPiped(url, HighQualityAudio(), hm)
                     )
                 pop_an_item(chat_id)
